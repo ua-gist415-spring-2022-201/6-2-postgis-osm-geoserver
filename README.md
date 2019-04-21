@@ -16,9 +16,9 @@ to run through the Start Menu.
 ## Assignment
 ### Deliverables: 
 Create a github branch named `osm` with the following files, submitting as a Pull Request to `master`:
-- SLD files for all layers (named after the tables; e.g., `buildings_a.sld` for `buildings_a` table).
-- screenshot of the following:
-  - OpenLayers preview of `osm` Layer Group, zoomed into Tucson, named `layer_group_preview.png`
+- SLD files for `buildings_a`, `nature`, `places`, `places_a`, `pofw`, and `pois`.
+- OpenLayers preview of `osm` Layer Group, zoomed into Tucson, named `geoserver_layer_group_preview.png`
+- QGIS view of `osm` Layer Group, zoomed into Tucson, named `qgis_layer_group_preview.png`
 
 ### Load the layers in Geoserver
 Start geoserver and visit http://localhost:8080/geoserver in your browser. 
@@ -81,8 +81,9 @@ Click on the `Style` drop-down at the bottom of the dialog and select `Save styl
 ![Save SLD](screenshots/qgis-postgis-osm-categorized-save.png)
 
 Save as `SLD Style File`. Give it the same name as the table name but with the `.sld` file suffix.
-
 Repeat for the tables: `nature`, `places`, `places_a`, `pofw`, and `pois`.
+
+#### Deliverables: SLD files for `buildings_a`, `nature`, `places`, `places_a`, `pofw`, and `pois`.
 
 ### Create Styles for layers in Geoserver
 Read up on styles at [https://docs.geoserver.org/stable/en/user/styling/index.html#styling](https://docs.geoserver.org/stable/en/user/styling/index.html#styling).
@@ -114,6 +115,10 @@ lines and points _below_ the polygon layers.
 
 Be sure to `Generate Bounds` and then `Save` the Layer Group like you did for the Layers.
 
+#### Deliverable: Geoserver Screenshot
+Visit the Layer Groups list in geoserver and look at the Open Layers preview. Zoom into Tucson and take a screen capture 
+of your browser. Name it `geoserver_layer_group_preview.png`
+
 ### Load the Geoserver Layer Group from QGIS
 
 In QGIS, click `Layer` -> `Add Layer` -> `WMS/WMTS`. You should have your local geoserver connection saved from
@@ -126,4 +131,5 @@ Once you are connected to geoserver localhost from within QGIS in the `WMS/WMTS`
 
 ![qgis-wms-osm-layer-group](screenshots/qgis-add-wms-layer-list.png)
 
-Deliverable: Take a screenshot of your QGIS desktop (including the layer list and the map) showing the OSM Layer Group.
+#### Deliverable: QGIS Screenshot
+Take a screenshot of your QGIS desktop (including the layer list and the map) showing the OSM Layer Group. Name it `qgis_layer_group_preview.png`
