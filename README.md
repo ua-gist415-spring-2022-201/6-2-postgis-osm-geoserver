@@ -1,4 +1,4 @@
-# Assignment: PostGIS III - OSM PostGIS to Geoserver
+# Assignment: PostGIS III - PostGIS to Geoserver
 ## Worth: 40
 
 ## Background
@@ -22,7 +22,7 @@ Create a github branch named `nyc` with the following files, submitting as a Pul
 ### Load the layers in Geoserver
 Start geoserver (if it's not running) and visit http://localhost:8080/geoserver in your browser. 
 
-#### Create a workspace named `osm`
+#### Create a workspace named `nyc_workshop`
 Geoserver uses workspaces to organize data. Generally speaking, you would create a workspace for a project or a specific
 type of data. In this exercize, create a new workspace for all your NYC data. To simplify this assignment, set this new workspace as the default and use the namespace `nyc_workshop`
 
@@ -87,7 +87,7 @@ Repeat for the tables: `nyc_census_blocks`, `nyc_streets`, and `nyc_subway_stati
 ### Create Styles for layers in Geoserver
 Read up on styles at [https://docs.geoserver.org/stable/en/user/styling/index.html#styling](https://docs.geoserver.org/stable/en/user/styling/index.html#styling).
 
-In Geoserver, click on `Styles` at the left main menu and then `Add a New Style`. Fill in the name of the style (`buildings_a` for example, matching the table name) and specify the `osm` workspace. Click on the `Choose File` button
+In Geoserver, click on `Styles` at the left main menu and then `Add a New Style`. Fill in the name of the style (`buildings_a` for example, matching the table name) and specify the `nyc_workshop` workspace. Click on the `Choose File` button
 and select the SLD file for the style you are creating, then click `Upload`. 
 
 ![Data store](screenshots/geoserver-add-style.png)
@@ -131,4 +131,4 @@ Once you are connected to geoserver localhost from within QGIS in the `WMS/WMTS`
 ![qgis-wms-osm-layer-group](screenshots/qgis-add-wms-layer-list.png)
 
 #### Deliverable: QGIS Screenshot
-Take a screenshot of your QGIS desktop (including the layer list and the map) showing the OSM Layer Group. Name it `qgis_layer_group_preview.png`
+Take a screenshot of your QGIS desktop (including the layer list and the map) showing the NYC Workshop Layer Group. Name it `qgis_layer_group_preview.png`
