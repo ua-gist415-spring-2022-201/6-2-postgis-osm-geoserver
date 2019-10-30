@@ -1,6 +1,5 @@
 # Assignment: PostGIS III - OSM PostGIS to Geoserver
-## Worth: 40 points
-## Due: Saturday, April 27, 11:59pm
+## Worth: 40
 
 ## Background
 Geoserver most commonly serves data from databases. Having databases back a geoserver layer allows the layer to be dynamic, meaning that geoserver will always serve the most recent data. Updating static files such as shapefiles is quite
@@ -15,17 +14,17 @@ to run through the Start Menu.
 
 ## Assignment
 ### Deliverables: 
-Create a github branch named `osm` with the following files, submitting as a Pull Request to `master`:
-- SLD files for `buildings_a`, `nature`, `places`, `places_a`, `pofw`, and `pois`.
-- OpenLayers preview of `osm` Layer Group, zoomed into Tucson, named `geoserver_layer_group_preview.png`
-- QGIS view of `osm` Layer Group, zoomed into Tucson, named `qgis_layer_group_preview.png`
+Create a github branch named `nyc` with the following files, submitting as a Pull Request to `master`:
+- SLD files for `nyc_census_blocks`, `nyc_streets`, and `nyc_subway_stations`.
+- OpenLayers preview of `nyc` Layer Group, zoomed into Tucson, named `geoserver_layer_group_preview.png`
+- QGIS view of `nyc` Layer Group, named `qgis_layer_group_preview.png`
 
 ### Load the layers in Geoserver
-Start geoserver and visit http://localhost:8080/geoserver in your browser. 
+Start geoserver (if it's not running) and visit http://localhost:8080/geoserver in your browser. 
 
 #### Create a workspace named `osm`
 Geoserver uses workspaces to organize data. Generally speaking, you would create a workspace for a project or a specific
-type of data. In this exercize, create a new workspace for all your OSM data. To simplify this assignment, set this new workspace as the default and use the namespace `osm`
+type of data. In this exercize, create a new workspace for all your NYC data. To simplify this assignment, set this new workspace as the default and use the namespace `nyc_workshop`
 
 Refer to the geoserver documentation about how to add a Workspace. 
 - [https://docs.geoserver.org/stable/en/user/data/webadmin/workspaces.html](https://docs.geoserver.org/stable/en/user/data/webadmin/workspaces.html)
@@ -33,10 +32,10 @@ Refer to the geoserver documentation about how to add a Workspace.
 ![Workspace](screenshots/geoserver-create-workspace.png)
 
 
-#### Create a data store named `osm`
+#### Create a data store named `nyc_workshop`
 Before you can add the data from the database we need to tell geoserver about the data location. Geoserver uses the term
 `data store` to refer to how it data is made available to geoserver. Specifically in this exercize you will create a PostGIS
-Data Store, giving geoserver the hostname (`localhost`), as well as database name (`arizona`), and username and password (possibly both `postgres` if you accepted the defaults during installation). 
+Data Store, giving geoserver the hostname (`localhost`), as well as database name (`nyc`), and username and password (`postgres` and `sal2019`). 
 
 Refer to the geoserver documentation about how to add a PostGIS Data Store. 
 - [https://docs.geoserver.org/stable/en/user/data/database/postgis.html](https://docs.geoserver.org/stable/en/user/data/database/postgis.html)
@@ -70,7 +69,7 @@ row for a given layer. This will bring up a minimal interactive map to look at y
 
 ![Buildings Layer Preview](screenshots/geoserver-layer-preview.png)
 
-#### Repeat this process for all your Arizona layers.
+#### Repeat this process for all your NYC workshop layers.
 
 ### Create Styles for layers in QGIS
 Open your PostGIS layers in QGIS (`Layer` -> `Add PostGIS Layers` ). QGIS will generate random simple symbologies.
@@ -81,9 +80,9 @@ Click on the `Style` drop-down at the bottom of the dialog and select `Save styl
 ![Save SLD](screenshots/qgis-postgis-osm-categorized-save.png)
 
 Save as `SLD Style File`. Give it the same name as the table name but with the `.sld` file suffix.
-Repeat for the tables: `nature`, `places`, `places_a`, `pofw`, and `pois`.
+Repeat for the tables: `nyc_census_blocks`, `nyc_streets`, and `nyc_subway_stations`.
 
-#### Deliverables: SLD files for `buildings_a`, `nature`, `places`, `places_a`, `pofw`, and `pois`.
+#### Deliverables: SLD files for `nyc_census_blocks`, `nyc_streets`, and `nyc_subway_stations`.
 
 ### Create Styles for layers in Geoserver
 Read up on styles at [https://docs.geoserver.org/stable/en/user/styling/index.html#styling](https://docs.geoserver.org/stable/en/user/styling/index.html#styling).
@@ -104,7 +103,7 @@ Repeat for all the styles you made SLDs for above.
 ### Create a Layer Group
 Layers can be grouped together for complex cartography. Read up on layer groups: [https://docs.geoserver.org/stable/en/user/data/webadmin/layergroups.html](https://docs.geoserver.org/stable/en/user/data/webadmin/layergroups.html).
 
-Create a Layer group named `OSM` with the title `OSM Arizona` in the `osm` workspace. 
+Create a Layer group named `nyc_workshop` with the title `NYC Workshop` in the `nyc_workshop` workspace. 
 
 Add all the PostGIS layers to the layer group. Arrange them in order so that points and lines are over polygons. 
 The order listed is actually the `Drawing Order`, which will be in reverse order of what will appear on top; that is, 
@@ -126,7 +125,7 @@ previously but, if not, add a new connection to localhost by adding the url to t
 While remembering the URL could be handy, it will be easiest for you to visit the `Demos` link on the left-hand main menu
 of geoserver webpage and find the `WMS_getCapabilities.url`. 
 
-Once you are connected to geoserver localhost from within QGIS in the `WMS/WMTS` dialog, you should see your newly created `osm` Layer Group. 
+Once you are connected to geoserver localhost from within QGIS in the `WMS/WMTS` dialog, you should see your newly created `nyc_workshop` Layer Group. 
 
 
 ![qgis-wms-osm-layer-group](screenshots/qgis-add-wms-layer-list.png)
