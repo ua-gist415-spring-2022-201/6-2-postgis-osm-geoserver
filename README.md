@@ -1,10 +1,9 @@
-# Assignment: PostGIS III - PostGIS to Geoserver
+# Assignment: PostGIS to Geoserver
 ## Worth: 40
 
 ## Background
 Geoserver most commonly serves data from databases. Having databases back a geoserver layer allows the layer to be dynamic, meaning that geoserver will always serve the most recent data. Updating static files such as shapefiles is quite
-cumbersome and error-prone, not to mention slow. In this lab you are going to create geoserver layers from the PostGIS tables you created. As part of this process, you will also create Style Layer Descriptors, or SLDs, from QGIS, to allow geoserver to
-customize the symbolization of your data.
+cumbersome and error-prone, not to mention slow. In this lab you are going to create geoserver layers from the PostGIS tables you created. As part of this process, you will also create Style Layer Descriptors, or SLDs, from QGIS, to allow geoserver to customize the symbolization of your data.
 
 ## Prerequisites
 Geoserver and Postgresql must be running. In a production environment these would be external services running on
@@ -15,9 +14,11 @@ to run through the Start Menu.
 ## Assignment
 ### Deliverables: 
 Create a github branch named `nyc` with the following files, submitting as a Pull Request to `master`:
-- SLD files for `nyc_census_blocks`, `nyc_streets`, and `nyc_subway_stations`.
-- OpenLayers preview of `nyc` Layer Group, zoomed into Tucson, named `geoserver_layer_group_preview.png`
-- QGIS view of `nyc` Layer Group, named `qgis_layer_group_preview.png`
+- `nyc_census_blocks.sld`
+- `nyc_streets.sld`
+- `nyc_subway_stations.sld`
+- `geoserver_layer_group_preview.png` - OpenLayers preview of `nyc` Layer Group, zoomed into Tucson 
+- `qgis_layer_group_preview.png` - QGIS view of `nyc` Layer Group
 
 ### Load the layers in Geoserver
 Start geoserver (if it's not running) and visit http://localhost:8080/geoserver in your browser. 
