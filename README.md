@@ -132,3 +132,6 @@ Once you are connected to geoserver localhost from within QGIS in the `WMS/WMTS`
 
 #### Deliverable: QGIS Screenshot
 Take a screenshot of your QGIS desktop (including the layer list and the map) showing the OSM Workshop Layer Group. Name it `qgis_layer_group_preview.png`
+
+[![DOI](https://zenodo.org/badge/182493806.svg)](https://zenodo.org/badge/latestdoi/182493806)
+
