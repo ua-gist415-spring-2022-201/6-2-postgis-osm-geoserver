@@ -13,30 +13,29 @@ to run through the Start Menu.
 
 ## Assignment
 ### Deliverables: 
-Create a github branch named `nyc` with the following files, submitting as a Pull Request to `master`:
-- `nyc_census_blocks.sld`
-- `nyc_streets.sld`
-- `nyc_subway_stations.sld`
-- `geoserver_layer_group_preview.png` - OpenLayers preview of `nyc` Layer Group, zoomed into Tucson 
-- `qgis_layer_group_preview.png` - QGIS view of `nyc` Layer Group
+Create a github branch named `osm` with the following files, submitting as a Pull Request to `master`:
+- `landuse.sld`
+- `roads.sld`
+- `pois.sld`
+- `geoserver_layer_group_preview.png` - OpenLayers preview of `osm` Layer Group, zoomed into Tucson 
+- `qgis_layer_group_preview.png` - QGIS view of `osm` Layer Group
 
 ### Load the layers in Geoserver
 Start geoserver (if it's not running) and visit http://localhost:8080/geoserver in your browser. 
 
-#### Create a workspace named `nyc_workshop`
+#### Create a workspace named `osm`
 Geoserver uses workspaces to organize data. Generally speaking, you would create a workspace for a project or a specific
-type of data. In this exercize, create a new workspace for all your NYC data. To simplify this assignment, set this new workspace as the default and use the namespace `nyc_workshop`
+type of data. In this exercize, create a new workspace for all your OSM data. To simplify this assignment, set this new workspace as the default and use the namespace `osm`
 
 Refer to the geoserver documentation about how to add a Workspace. 
 - [https://docs.geoserver.org/stable/en/user/data/webadmin/workspaces.html](https://docs.geoserver.org/stable/en/user/data/webadmin/workspaces.html)
 
 ![Workspace](screenshots/geoserver-create-workspace.png)
 
-
-#### Create a data store named `nyc_workshop`
+#### Create a data store named `osm`
 Before you can add the data from the database we need to tell geoserver about the data location. Geoserver uses the term
 `data store` to refer to how it data is made available to geoserver. Specifically in this exercize you will create a PostGIS
-Data Store, giving geoserver the hostname (`localhost`), as well as database name (`nyc`), and username and password (`postgres` and `sal2019`). 
+Data Store, giving geoserver the hostname (`localhost`), as well as database name (`osm`), and username and password (`postgres` and `postgres`). 
 
 Refer to the geoserver documentation about how to add a PostGIS Data Store. 
 - [https://docs.geoserver.org/stable/en/user/data/database/postgis.html](https://docs.geoserver.org/stable/en/user/data/database/postgis.html)
@@ -70,7 +69,7 @@ row for a given layer. This will bring up a minimal interactive map to look at y
 
 ![Buildings Layer Preview](screenshots/geoserver-layer-preview.png)
 
-#### Repeat this process for all your NYC workshop layers.
+#### Repeat this process for all your OSM layers.
 
 ### Create Styles for layers in QGIS
 Open your PostGIS layers in QGIS (`Layer` -> `Add PostGIS Layers` ). QGIS will generate random simple symbologies.
@@ -81,14 +80,15 @@ Click on the `Style` drop-down at the bottom of the dialog and select `Save styl
 ![Save SLD](screenshots/qgis-postgis-osm-categorized-save.png)
 
 Save as `SLD Style File`. Give it the same name as the table name but with the `.sld` file suffix.
-Repeat for the tables: `nyc_census_blocks`, `nyc_streets`, and `nyc_subway_stations`.
+Repeat for the tables: `pois`, `roads`, and `landuse`.
 
-#### Deliverables: SLD files for `nyc_census_blocks`, `nyc_streets`, and `nyc_subway_stations`.
+#### Deliverables: SLD files for `landuse`, `roads`, and `pois`.
 
 ### Create Styles for layers in Geoserver
 Read up on styles at [https://docs.geoserver.org/stable/en/user/styling/index.html#styling](https://docs.geoserver.org/stable/en/user/styling/index.html#styling).
 
-In Geoserver, click on `Styles` at the left main menu and then `Add a New Style`. Fill in the name of the style (`buildings_a` for example, matching the table name) and specify the `nyc_workshop` workspace. Click on the `Choose File` button
+In Geoserver, click on `Styles` at the left main menu and then `Add a New Style`. Fill in the name of the style (`buildings_a` for example, matching the table name) and specify the `osm
+` workspace. Click on the `Choose File` button
 and select the SLD file for the style you are creating, then click `Upload`. 
 
 ![Data store](screenshots/geoserver-add-style.png)
@@ -104,7 +104,7 @@ Repeat for all the styles you made SLDs for above.
 ### Create a Layer Group
 Layers can be grouped together for complex cartography. Read up on layer groups: [https://docs.geoserver.org/stable/en/user/data/webadmin/layergroups.html](https://docs.geoserver.org/stable/en/user/data/webadmin/layergroups.html).
 
-Create a Layer group named `nyc_workshop` with the title `NYC Workshop` in the `nyc_workshop` workspace. 
+Create a Layer group named `osm` with the title `OSM` in the `osm` workspace. 
 
 Add all the PostGIS layers to the layer group. Arrange them in order so that points and lines are over polygons. 
 The order listed is actually the `Drawing Order`, which will be in reverse order of what will appear on top; that is, 
@@ -126,10 +126,9 @@ previously but, if not, add a new connection to localhost by adding the url to t
 While remembering the URL could be handy, it will be easiest for you to visit the `Demos` link on the left-hand main menu
 of geoserver webpage and find the `WMS_getCapabilities.url`. 
 
-Once you are connected to geoserver localhost from within QGIS in the `WMS/WMTS` dialog, you should see your newly created `nyc_workshop` Layer Group. 
-
+Once you are connected to geoserver localhost from within QGIS in the `WMS/WMTS` dialog, you should see your newly created `osm` Layer Group. 
 
 ![qgis-wms-osm-layer-group](screenshots/qgis-add-wms-layer-list.png)
 
 #### Deliverable: QGIS Screenshot
-Take a screenshot of your QGIS desktop (including the layer list and the map) showing the NYC Workshop Layer Group. Name it `qgis_layer_group_preview.png`
+Take a screenshot of your QGIS desktop (including the layer list and the map) showing the OSM Workshop Layer Group. Name it `qgis_layer_group_preview.png`
