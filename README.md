@@ -35,7 +35,10 @@ Refer to the geoserver documentation about how to add a Workspace.
 #### Create a data store named `osm`
 Before you can add the data from the database we need to tell geoserver about the data location. Geoserver uses the term
 `data store` to refer to how it data is made available to geoserver. Specifically in this exercize you will create a PostGIS
-Data Store, giving geoserver the hostname (`localhost`), as well as database name (`osm`), and username and password (`postgres` and `postgres`). 
+Data Store, giving geoserver the hostname , as well as database name, and username and password (`postgres` and `postgres`). 
+
+In the docker compose implementation, the hostname of the DB server is the name of the service, `postgis`.
+The database name will be either `hawaii` or `arizona`, depending on which version of the assignment you completed.
 
 Refer to the geoserver documentation about how to add a PostGIS Data Store. 
 - [https://docs.geoserver.org/stable/en/user/data/database/postgis.html](https://docs.geoserver.org/stable/en/user/data/database/postgis.html)
