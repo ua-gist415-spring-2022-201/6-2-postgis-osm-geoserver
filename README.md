@@ -1,5 +1,4 @@
 # Assignment: PostGIS to Geoserver
-## Worth: 40
 
 ## Background
 Geoserver most commonly serves data from databases. Having databases back a geoserver layer allows the layer to be dynamic, meaning that geoserver will always serve the most recent data. Updating static files such as shapefiles is quite
@@ -7,9 +6,12 @@ cumbersome and error-prone, not to mention slow. In this lab you are going to cr
 
 ## Prerequisites
 Geoserver and Postgresql must be running. In a production environment these would be external services running on
-managed (possibly dedicated) servers. In this class, you are running them on your workstation. If you installed the
-EnterpriseDB version of postgresql, then it is likely already running. Geoserver may be running, or may be configured 
-to run through the Start Menu.
+managed (possibly dedicated) servers. In this class, you are running them on your workstation through docker.
+```
+docker run -v YOUR_POSTGIS_DATA_DIR/data:/var/lib/postgresql/data -p 25432:5432 mdillon/postgis
+docker run -p 8180:8080 --link postgis:postgres kartoza/geoserver
+```
+where `YOUR_POSTGIS_DATA_DIR` will be a directory on your machine dedicated to housing this database such as `G:/Users/Aaryn/GIST604B/PostgresData` or `/Users/aaryno/postgres_data`. Be sure to unix-style path formatting (e.g., `/` instead of `\` to denote directory separators).
 
 ## Assignment
 ### Deliverables: 
@@ -21,7 +23,7 @@ Create a github branch named `osm` with the following files, submitting as a Pul
 - `qgis_layer_group_preview.png` - QGIS view of `osm` Layer Group
 
 ### Load the layers in Geoserver
-Start geoserver (if it's not running) and visit http://localhost:8080/geoserver in your browser. 
+Visit http://localhost:8180/geoserver in your browser. 
 
 #### Create a workspace named `osm`
 Geoserver uses workspaces to organize data. Generally speaking, you would create a workspace for a project or a specific
