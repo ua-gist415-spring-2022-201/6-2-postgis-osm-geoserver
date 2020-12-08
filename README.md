@@ -70,7 +70,7 @@ Finally, this software has some legacy aspects to it. One is that _settings are 
 
 ##### Layer Preview
 To see a preview of your layer, click on `Layer Preview` in the left hand main menu, and then click `Open Layers` in the
-row for a given layer. This will bring up a minimal interactive map to look at your data. For example, this is what your `buildings_a` preview might look like:
+row for a given layer. This will bring up a minimal interactive map to look at your data. For example, this is what your `buildings_a` preview might look like (Note that screenshot has the geoserver instance running on `8080` but we are using `8180` for our purposes:
 
 ![Buildings Layer Preview](screenshots/geoserver-layer-preview.png)
 
