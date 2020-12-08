@@ -8,10 +8,28 @@ cumbersome and error-prone, not to mention slow. In this lab you are going to cr
 Geoserver and Postgresql must be running. In a production environment these would be external services running on
 managed (possibly dedicated) servers. In this class, you are running them on your workstation through docker.
 ```
+docker network create gist604b
 docker run --network gist604b --name postgis -v $YOUR_DATA_DIR/postgresql_datadata:/var/lib/postgresql/data -p 25432:5432 mdillon/postgis
 docker run --network gist604b --name geoserver -v $YOUR_DATA_DIR/geoserver_data:/opt/geoserver/data_dir -p 8180:8080 kartoza/geoserver
 ```
 where `YOUR_POSTGIS_DATA_DIR` will be a directory on your machine dedicated to housing this database such as `G:/Users/Aaryn/GIST604B/PostgresData` or `/Users/aaryno/postgres_data`. Be sure to unix-style path formatting (e.g., `/` instead of `\` to denote directory separators).
+
+Some errors you might get:
+### network with name gist604b already exists
+```
+Error response from daemon: network with name gist604b already exists
+```
+which means you already created it. No problem!
+###  Conflict. The container name "/postgis" (or "/geoserver") is already in use by container 
+```
+docker: Error response from daemon: Conflict. The container name "/postgis" is already in use by container "ec13495fa94b54f4bb6a05d65dd8e5b6af08a93644978347942f4218e8659b56". You have to remove (or rename) that container to be able to reuse that name.
+```
+That means a container with that name is already running. Without knowing the exact configuration of that container, we should be able to safely shut it down with:
+```
+docker stop postgis
+docker rm postgis
+```
+Which will stop the container and remove it, allowing you to create a new container with the same name and with the settings we need for this assignment.
 
 ## Assignment
 ### Deliverables: 
