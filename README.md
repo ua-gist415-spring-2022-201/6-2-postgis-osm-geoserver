@@ -12,7 +12,7 @@ docker network create gist604b
 docker run --network gist604b --name postgis -v $YOUR_DATA_DIR/postgresql_datadata:/var/lib/postgresql/data -p 25432:5432 mdillon/postgis
 docker run --network gist604b --name geoserver -v $YOUR_DATA_DIR/geoserver_data:/opt/geoserver/data_dir -p 8180:8080 kartoza/geoserver
 ```
-where `YOUR_POSTGIS_DATA_DIR` will be a directory on your machine dedicated to housing this database such as `G:/Users/Aaryn/GIST604B/PostgresData` or `/Users/aaryno/postgres_data`. Be sure to unix-style path formatting (e.g., `/` instead of `\` to denote directory separators).
+where `YOUR_DATA_DIR` will be a directory on your machine dedicated to housing this database such as `G:/Users/Aaryn/GIST604B/Docker_Data` or `/Users/aaryno/gist604b/docker_data`. Be sure to unix-style path formatting (e.g., `/` instead of `\` to denote directory separators).
 
 Some errors you might get:
 ### network with name gist604b already exists
