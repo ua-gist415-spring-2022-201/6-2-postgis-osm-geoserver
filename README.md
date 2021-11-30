@@ -17,12 +17,20 @@ Create a github branch named `osm` with the following files, submitting as a Pul
 - `geoserver_layer_group_preview.png` - OpenLayers preview of `osm` Layer Group, zoomed into Tucson 
 - `qgis_layer_group_preview.png` - QGIS view of `osm` Layer Group
 
+### Import data from OSM
+I wrote a utility to download data from an OSM data provider, geofabrik, and insert it into your postgis database. 
+Be sure to have your `postgis` docker container running from the previous assignment, then run this:
+```
+docker run  --network gist604b -e STATE=hawaii -e DATABASE=hawaii aaryno/populate-docker-geo populate-postgis.sh
+```
+You will see (hopefully) a lot of `INSERT 0 1` lines as the data is being imported into your database. It will take several minutes.
+
 ### Load the layers in Geoserver
 Visit http://localhost:8280/geoserver in your browser. 
 
 #### Create a workspace named `osm`
 Geoserver uses workspaces to organize data. Generally speaking, you would create a workspace for a project or a specific
-type of data. In this exercize, create a new workspace for all your OSM data. To simplify this assignment, set this new workspace as the default and use the namespace `osm`
+type of data. In this exercise, create a new workspace for all your OSM data. To simplify this assignment, set this new workspace as the default and use the namespace `osm`
 
 Refer to the geoserver documentation about how to add a Workspace. 
 - [https://docs.geoserver.org/stable/en/user/data/webadmin/workspaces.html](https://docs.geoserver.org/stable/en/user/data/webadmin/workspaces.html)
