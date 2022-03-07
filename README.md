@@ -1,4 +1,5 @@
 # Assignment: PostGIS to Geoserver
+## Worth: 30 points 
 
 ## Background
 Geoserver most commonly serves data from databases. Having databases back a geoserver layer allows the layer to be dynamic, meaning that geoserver will always serve the most recent data. Updating static files such as shapefiles is quite
@@ -10,7 +11,7 @@ managed (possibly dedicated) servers. In this class, you are running them on you
 
 ## Assignment
 ### Deliverables: 
-Create a github branch named `osm` with the following files, submitting as a Pull Request to `master`:
+Create a github branch named `osm` with the following files, submitting as a Pull Request to `master`: `(5 pts. each)`
 - `landuse.sld`
 - `roads.sld`
 - `pois.sld`
