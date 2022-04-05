@@ -19,10 +19,10 @@ Create a github branch named `osm` with the following files, submitting as a Pul
 - `qgis_layer_group_preview.png` - QGIS view of `osm` Layer Group
 
 ### Import data from OSM
-I wrote a utility to download data from an OSM data provider, geofabrik, and insert it into your postgis database. 
+Aaryn Olsson wrote a utility to download data from an OSM data provider, geofabrik, and insert it into your postgis database. 
 Be sure to have your `postgis` docker container running from the previous assignment, then run this:
 ```
-docker run  --network gist415 -e STATE=hawaii -e DATABASE=hawaii username/populate-docker-geo populate-postgis.sh
+docker run  --network gist415 -e STATE=hawaii -e DATABASE=hawaii aaryno/populate-docker-geo populate-postgis.sh
 ```
 You will see (hopefully) a lot of `INSERT 0 1` lines as the data is being imported into your database. It will take several minutes.
 
