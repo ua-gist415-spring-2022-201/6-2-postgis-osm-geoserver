@@ -49,7 +49,7 @@ The database name will be either `hawaii` or `arizona`, depending on which versi
 Refer to the geoserver documentation about how to add a PostGIS Data Store. 
 - [https://docs.geoserver.org/stable/en/user/data/database/postgis.html](https://docs.geoserver.org/stable/en/user/data/database/postgis.html)
 
-![Data store](screenshots/geoserver-create-datastore.png)
+![Data store](screenshots/geoserver-create-datastore1.jpg)
 
 #### Add PostGIS layers to geoserver
 You worked with layers previously in geoserver but now are going to add them yourself. Read up on geoserver layers at
